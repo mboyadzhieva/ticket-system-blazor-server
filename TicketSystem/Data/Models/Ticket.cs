@@ -19,6 +19,6 @@
 
         public SupportType AssignedTo { get; set; }
 
-        public IEnumerable<Comment> Comments { get; set; }
+        public ICollection<Comment> Comments { get; set; } = new HashSet<Comment>();
     }
 }
