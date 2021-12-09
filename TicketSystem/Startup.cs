@@ -44,6 +44,8 @@ namespace TicketSystem
                 .AddDefaultTokenProviders();
             services.AddScoped<ICurrentUserService, CurrentUserService>();
             services.AddScoped<ITicketService, TicketService>();
+            services.AddScoped<ICommentService, CommentService>();
+            services.AddAutoMapper(typeof(AutoMapperProfile));
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<ApplicationUser>>();

@@ -21,5 +21,9 @@
 
         public string GetUserName()
             => this.user?.Identity?.Name;
+
+        public bool IsAssignedToRole(string role)
+            => this.user.IsInRole(role);
+
     }
 }

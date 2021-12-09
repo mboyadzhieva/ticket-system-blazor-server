@@ -10,10 +10,8 @@
         [MaxLength(50)]
         public string Title { get; set; }
 
-        [MaxLength(200)]
+        [MaxLength(2000)]
         public string Content { get; set; }
-
-        public int PhotoId { get; set; }
 
         public bool IsPrivate { get; set; }
 

@@ -5,7 +5,7 @@
 
     public interface ITicketService
     {
-        List<TicketModel> GetAllTickets();
+        List<TicketModel> GetAllTickets(string role = "all");
 
         TicketModel GetTicketById(int id);
 

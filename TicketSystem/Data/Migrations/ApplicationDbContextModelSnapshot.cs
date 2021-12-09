@@ -48,43 +48,43 @@ namespace TicketSystem.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "0fc0dc2f-1e9f-4609-b077-611b53f29dc2",
-                            ConcurrencyStamp = "6980e0f2-ef34-43a8-8187-66d8aa4db5aa",
+                            Id = "888b8a4f-208d-47fe-b48c-faf60543f7d7",
+                            ConcurrencyStamp = "5ecf01ec-790c-4624-bf4c-6079a0c14061",
                             Name = "Junior",
                             NormalizedName = "JUNIOR"
                         },
                         new
                         {
-                            Id = "0d6b82e8-0bb4-485d-aef6-09b25459a98b",
-                            ConcurrencyStamp = "2be08184-88e8-45f6-b053-028af2b5757f",
+                            Id = "4df98400-084c-492a-bc41-8d26585d93df",
+                            ConcurrencyStamp = "7268bfe7-ed40-4821-8cb4-a7576a06120f",
                             Name = "Mid",
                             NormalizedName = "MID"
                         },
                         new
                         {
-                            Id = "9736787f-9469-4ba5-b3b6-1f21d84dc6dd",
-                            ConcurrencyStamp = "21aaf7d8-d194-4700-b831-d817620a016f",
+                            Id = "f2a16266-feb6-4552-9b78-e21bed20bd67",
+                            ConcurrencyStamp = "03f739cd-1408-4ff4-a645-22e3c026b070",
                             Name = "Senior",
                             NormalizedName = "SENIOR"
                         },
                         new
                         {
-                            Id = "bbd27720-2794-406d-9369-f3ca8d2c7af2",
-                            ConcurrencyStamp = "ac5b28c6-0929-4b0f-86b2-22f054072249",
+                            Id = "9f2becca-10ea-4efc-a575-871c9f7da3fb",
+                            ConcurrencyStamp = "251d2c36-a2fa-49b3-9909-963e441f4c72",
                             Name = "OfficeSupport",
                             NormalizedName = "OFFICESUPPORT"
                         },
                         new
                         {
-                            Id = "1f88e2e3-0938-4e7b-9e19-e702b18116fd",
-                            ConcurrencyStamp = "5fd1193d-c4d1-434c-84a2-49010e18b3fa",
+                            Id = "214e899e-eb61-4402-bb18-b306ac0c7e75",
+                            ConcurrencyStamp = "ff4ee18a-ca2a-493f-ade7-20d16a79285f",
                             Name = "TechSupport",
                             NormalizedName = "TECHSUPPORT"
                         },
                         new
                         {
-                            Id = "087ec6fc-d366-41ba-a608-c13df8d730f1",
-                            ConcurrencyStamp = "159ad750-0239-4fc6-83be-4eb093be3be7",
+                            Id = "68fec7ee-8dba-4114-87e4-3b6107e27334",
+                            ConcurrencyStamp = "e9144edf-53ce-4b04-b64d-2249e0329396",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
@@ -274,14 +274,14 @@ namespace TicketSystem.Data.Migrations
 
                     b.Property<string>("Content")
                         .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
+                        .HasMaxLength(2000)
+                        .HasColumnType("nvarchar(2000)");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("PhotoId")
-                        .HasColumnType("int");
+                    b.Property<string>("PhotoId")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("TicketId")
                         .HasColumnType("int");
@@ -310,8 +310,8 @@ namespace TicketSystem.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Content")
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
+                        .HasMaxLength(2000)
+                        .HasColumnType("nvarchar(2000)");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
@@ -319,8 +319,8 @@ namespace TicketSystem.Data.Migrations
                     b.Property<bool>("IsPrivate")
                         .HasColumnType("bit");
 
-                    b.Property<int>("PhotoId")
-                        .HasColumnType("int");
+                    b.Property<string>("PhotoId")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
                         .IsRequired()

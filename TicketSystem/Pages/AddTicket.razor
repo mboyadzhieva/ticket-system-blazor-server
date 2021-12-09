@@ -1,5 +1,114 @@
-﻿<h3>AddTicket</h3>
+﻿@page "/ticket"
+@attribute [Authorize]
 
-@code {
+<h3>Add New Ticket</h3>
 
+<br>
+@if (!string.IsNullOrEmpty(ErrorMsg))
+{
+    <div class="error">
+        @ErrorMsg
+    </div>
 }
+<EditForm Model="@TicketModel" OnValidSubmit="@CreateTicket">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="form-group col-md-12">
+        <InputText @bind-Value="@TicketModel.Title" id="ticketTitle" class="form-control" placeholder="Title" />
+    </div>
+    <div class="form-group col-md-12">
+        <InputTextArea @bind-Value="@TicketModel.Content" id="ticketContent" class="form-control" placeholder="Content" />
+    </div>
+    <div class="form-group col-md-12">
+        <label for="ticketAssignedTo">Assign to</label>
+        <InputSelect @bind-Value="@TicketModel.AssignedTo" class="form-select" aria-label="Default select example" id="ticketSupportType">
+            <option value="0">Office support</option>
+            <option value="1">Tech support</option>
+        </InputSelect>
+    </div>
+    <div class="input-group col-md-12">
+        <div class="custom-file">
+            <label class="custom-file-label">Upload photo</label>
+            <InputFile class="custom-file-input" id="ticketAvatar" OnChange="@OnFileSubmit"></InputFile>
+        </div>
+    </div>
+    <div class="form-group col-md-12">
+        <label>Make ticket private</label>
+        <InputCheckbox @bind-Value="@TicketModel.IsPrivate" class="form-check-input" type="checkbox" id="ticketVsibility"></InputCheckbox>
+    </div>
+    <div class="form-group col-md-12 text-right">
+        <button type="submit" class="btn btn-success">Submit</button>
+    </div>
+</EditForm>
+
+@*<EditForm>
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <div class="form-group col-md-12">
+            <label asp-for="@TicketModel.Title">First name:</label>
+            <InputText @bind-Value="@TicketModel.Title" id="ticketTitle" class="form-control" />
+        </div>
+        <div class="form-group col-md-12">
+            <label asp-for="@TicketModel.Content">Content</label>
+            <InputTextArea @bind-Value="@TicketModel.Content" id="ticketContent" class="form-control" />
+        </div>
+        <div class="form-group col-md-12">
+            <label asp-for="@TicketModel.IsPrivate">Content</label>
+            <select class="form-control" id="ticketVsibility">
+                <option>Private</option>
+                <option>Public</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label asp-for="@TicketModel.AssignedTo">Assign to</label>
+            <select class="form-control" id="ticketSupportType">
+                <option>Tech support</option>
+                <option>Office support</option>
+            </select>
+        </div>
+
+        <div class="form-group col-md-12 text-right">
+            <button type="submit" class="btn btn-success">Submit</button>
+        </div>
+
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Title</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Title">
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">Content</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+
+
+
+
+    </EditForm>*@
+
+
+@*<form>
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Title</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Title">
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">Content</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">Visibility</label>
+            <select class="form-control" id="exampleFormControlSelect1">
+                <option>Private</option>
+                <option>Public</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">Assign to</label>
+            <select class="form-control" id="exampleFormControlSelect1">
+                <option>Tech support</option>
+                <option>Office support</option>
+            </select>
+        </div>
+    </form>*@

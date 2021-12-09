@@ -5,5 +5,7 @@
         string GetUserName();
 
         string GetId();
+
+        bool IsAssignedToRole(string role);
     }
 }

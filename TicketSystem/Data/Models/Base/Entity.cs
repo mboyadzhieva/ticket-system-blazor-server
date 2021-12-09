@@ -9,6 +9,8 @@
 
         public DateTime CreatedOn { get; set; }
 
+        public string PhotoId { get; set; }
+
         // created by
         [Required]
         public string UserId { get; set; }

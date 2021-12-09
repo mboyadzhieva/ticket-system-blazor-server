@@ -1,7 +1,23 @@
 ﻿@page "/tickets"
+@attribute [Authorize]
 
-<h3>Tickets</h3>
-
-@code {
-
+@if (AllTickets == null || !AllTickets.Any())
+{
+    <p>You don't have any tickets and no public tickets are available!</p>
+    <a href="/ticket" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Add Ticket</a>
 }
+else
+{
+    <div class="container">
+        <div class="row">
+            <div class="mb-2">
+                <a href="/ticket" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Add Ticket</a>
+            </div>
+            @foreach (TicketModel ticket in AllTickets)
+            {
+                <TicketCard Ticket="@ticket"></TicketCard>
+            }
+        </div>
+    </div>
+}
+
