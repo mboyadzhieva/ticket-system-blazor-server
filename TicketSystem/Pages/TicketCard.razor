@@ -1,26 +1,22 @@
-﻿<div class="col-sm-4">
-    <div class="card border-dark mb-3" style="max-width: 18rem;">
-        <img class="card-img-top" src="/Uploads/@Ticket.PhotoId" alt="Ticket without an image">
-        <div class="card-body text-dark">
-            <h5 class="card-title">@Ticket.Title</h5>
-            <p class="card-text">@Ticket.Content</p>
-        </div>
-        <ul class="list-group list-group-flush">
-            @if (Ticket.IsPrivate)
-            {
-                <li class="list-group-item">Visibility: Private</li>
-            }
-            else
-            {
-                <li class="list-group-item">Visibility: Public</li>
-            }
-            <li class="list-group-item">Support type: @Ticket.AssignedTo.ToString()</li>
-            <li class="list-group-item">Published by: @Username</li>
-        </ul>
-        <div class="card-body">
-            <a href="/comments/@Ticket.Id" class="card-link">Comments</a>
-        </div>
+﻿<div class="card h-100 mb-3" style="max-width: 18rem;">
+    <img class="card-img-top" src="/Uploads/@Ticket.PhotoId" alt="Ticket without an image">
+    <div class="card-body text-dark">
+        <h5 class="card-title">@Ticket.Title</h5>
+        <p class="card-text">@Ticket.Content</p>
+    </div>
+    <ul class="list-group list-group-flush">
+        @if (Ticket.IsPrivate)
+        {
+            <li class="list-group-item text-muted">Visibility: Private</li>
+        }
+        else
+        {
+            <li class="list-group-item">Visibility: Public</li>
+        }
+        <li class="list-group-item">Support type: @Ticket.AssignedTo.ToString()</li>
+    </ul>
+    <div class="card-footer">
+        <a href="/comments/@Ticket.Id" class="card-link">Comments</a>
     </div>
 </div>
-
 

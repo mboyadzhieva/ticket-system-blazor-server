@@ -1,7 +1,7 @@
 ﻿@page "/ticket"
 @attribute [Authorize]
 
-<h3>Add New Ticket</h3>
+<h5>New Ticket</h5>
 
 <br>
 @if (!string.IsNullOrEmpty(ErrorMsg))
@@ -15,18 +15,22 @@
     <ValidationSummary />
 
     <div class="form-group col-md-12">
-        <InputText @bind-Value="@TicketModel.Title" id="ticketTitle" class="form-control" placeholder="Title" />
+        <label for="ticketTtile">Title</label>
+        <InputText @bind-Value="@TicketModel.Title" id="ticketTitle" class="form-control" />
     </div>
+
     <div class="form-group col-md-12">
-        <InputTextArea @bind-Value="@TicketModel.Content" id="ticketContent" class="form-control" placeholder="Content" />
+        <label for="ticketContent">Content</label>
+        <InputTextArea @bind-Value="@TicketModel.Content" id="ticketContent" class="form-control" />
     </div>
     <div class="form-group col-md-12">
         <label for="ticketAssignedTo">Assign to</label>
-        <InputSelect @bind-Value="@TicketModel.AssignedTo" class="form-select" aria-label="Default select example" id="ticketSupportType">
+        <select @bind="@TicketModel.AssignedTo" class="form-select" aria-label="Default select example" id="ticketSupportType">
             <option value="0">Office support</option>
             <option value="1">Tech support</option>
-        </InputSelect>
+        </select>
     </div>
+    <hr>
     <div class="input-group col-md-12">
         <div class="custom-file">
             <label class="custom-file-label">Upload photo</label>
@@ -34,10 +38,12 @@
         </div>
     </div>
     <div class="form-group col-md-12">
-        <label>Make ticket private</label>
-        <InputCheckbox @bind-Value="@TicketModel.IsPrivate" class="form-check-input" type="checkbox" id="ticketVsibility"></InputCheckbox>
+        <div class="checkbox">
+            <label>Make ticket private</label>
+            <InputCheckbox @bind-Value="@TicketModel.IsPrivate" class="form-check-input" type="checkbox" id="ticketVsibility"></InputCheckbox>
+        </div>
     </div>
-    <div class="form-group col-md-12 text-right">
+    <div class="form-group col-md-12">
         <button type="submit" class="btn btn-success">Submit</button>
     </div>
 </EditForm>

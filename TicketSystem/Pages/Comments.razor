@@ -1,4 +1,5 @@
 ﻿@page "/comments/{ticketId}"
+@attribute [Authorize]
 
 @if (AllComments == null || !AllComments.Any())
 {
@@ -8,19 +9,11 @@
 else
 {
     <div class="container">
-        <div class="d-flex justify-content-between p-3 border-top">
-            <a href="/comment/@TicketId" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Add Comment</a>
-        </div>
-        <div class="row">
-            @foreach (CommentModel comment in AllComments)
-            {
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="/Uploads/@comment.PhotoId" alt="No picture">
-                    <div class="card-body">
-                        <p class="card-text">@comment.Content</p>
-                    </div>
-                </div>
-            }
-        </div>
+        <a href="/comment/@TicketId" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Add Comment</a>
+        <hr>
+        @foreach (CommentModel comment in AllComments)
+        {
+            <CommentSection Comment="@comment"></CommentSection>
+        }
     </div>
 }

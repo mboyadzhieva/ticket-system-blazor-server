@@ -9,8 +9,6 @@
     {
         private List<TicketModel> AllTickets { get; set; }
 
-        public string Username { get; set; }
-
         [Inject]
         private ITicketService TicketService { get; set; }
 

@@ -1,6 +1,7 @@
 ﻿@page "/comment/{ticketId}"
+@attribute [Authorize]
 
-<h3>AddComment</h3>
+<h3>Add Comment</h3>
 
 @if (!string.IsNullOrEmpty(ErrorMsg))
 {
@@ -15,6 +16,7 @@
     <div class="form-group col-md-12">
         <InputTextArea @bind-Value="@CommentModel.Content" id="ticketContent" class="form-control" placeholder="Content" />
     </div>
+    <hr>
     <div class="input-group col-md-12">
         <div class="custom-file">
             <label class="custom-file-label">Upload photo</label>

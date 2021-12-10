@@ -12,12 +12,13 @@
         [Parameter]
         public TicketModel Ticket { get; set; }
 
-        [Inject]
-        private UserManager<ApplicationUser> UserManager { get; set; }
-
-        public string Username { get; set; }
-
         //protected override async Task OnInitializedAsync()
+        //{
+        //    await SetUsername();
+        //    base.OnInitialized();
+        //}
+
+        //protected async Task SetUsername()
         //{
         //    ApplicationUser ticketOwner = await UserManager.FindByIdAsync(Ticket.UserId);
         //    Username = ticketOwner.UserName;

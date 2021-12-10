@@ -1,4 +1,5 @@
-﻿@page "/tickets"
+﻿@page "/"
+@page "/tickets"
 @attribute [Authorize]
 
 @if (AllTickets == null || !AllTickets.Any())
@@ -8,16 +9,18 @@
 }
 else
 {
-    <div class="container">
-        <div class="row">
-            <div class="mb-2">
-                <a href="/ticket" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Add Ticket</a>
-            </div>
-            @foreach (TicketModel ticket in AllTickets)
-            {
+    <a href="/ticket" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Add Ticket</a>
+    <hr>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+
+
+        @foreach (TicketModel ticket in AllTickets)
+        {
+            <div class="col">
                 <TicketCard Ticket="@ticket"></TicketCard>
-            }
-        </div>
+            </div>
+        }
     </div>
+
 }
 

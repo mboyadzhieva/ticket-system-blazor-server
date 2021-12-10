@@ -30,6 +30,7 @@
         [Display(Name = "Make private")]
         public bool IsPrivate { get; set; }
 
+        [Required]
         [Display(Name = "Support type")]
         public SupportType AssignedTo { get; set; }
 
