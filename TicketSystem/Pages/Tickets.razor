@@ -5,12 +5,19 @@
 @if (AllTickets == null || !AllTickets.Any())
 {
     <p>You don't have any tickets and no public tickets are available!</p>
-    <a href="/ticket" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Add Ticket</a>
+    @if (!CurrentUser.IsAssignedToRole("OfficeSupport") && !CurrentUser.IsAssignedToRole("TechSupport"))
+    {
+        <a href="/ticket" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Add Ticket</a>
+        <hr>
+    }
 }
 else
 {
-    <a href="/ticket" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Add Ticket</a>
-    <hr>
+    @if (!CurrentUser.IsAssignedToRole("OfficeSupport") && !CurrentUser.IsAssignedToRole("TechSupport"))
+    {
+        <a href="/ticket" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Add Ticket</a>
+        <hr>
+    }
     <div class="row row-cols-1 row-cols-md-3 g-4">
 
 

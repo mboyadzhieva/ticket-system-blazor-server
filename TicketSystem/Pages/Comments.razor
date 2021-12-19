@@ -8,12 +8,15 @@
 }
 else
 {
-    <div class="container">
-        <a href="/comment/@TicketId" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Add Comment</a>
-        <hr>
+    <a href="/comment/@TicketId" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Add Comment</a>
+    <hr>
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+
         @foreach (CommentModel comment in AllComments)
         {
-            <CommentSection Comment="@comment"></CommentSection>
+            <div class="col">
+                <CommentSection Comment="@comment"></CommentSection>
+            </div>
         }
     </div>
 }
